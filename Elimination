@@ -1,34 +1,32 @@
 SELECT
-Entity_Code,
-Account,
-Cost_Center,
-Location,
-Product,
-Future1,
-Future2,
+  Entity_Code,
+  Account,
+  Cost_Center,
+  Location,
+  Product,
+  Future1,
+  Future2,
 
 #Tengo que ver cada CASE en particular: 51118 en la tabla del JE no tiene Future1 y tengo que poner en todos los casos que si (si estoy haciendo DEBIT) que el Debit sea mayor que el Credit o que si el Debit es 0 que traiga 0; o sea, si no existe la linea de IFS, que me traiga el monto de Debit que corresponde
-
-
-CASE
-WHEN Entity_Code = "01" AND Account = "45100" AND Product = "A01" AND Future1 = "1000" THEN (SELECT
-ROUND(SUM(Debit-Credit),2) AS Debit
-FROM gra_systems.bets_adwords_consolidation_je_201907_prod
-WHERE Entity_Code = "01"
-AND Account IN ("45100", "49950")
-AND Cost_Center IN ("950","IFS")
-AND Product = "A01"
-AND Future1 = "1000"
-AND Debit > 0)
-WHEN Entity_Code = "01" AND Account = "45100" AND Product = "A01" AND Future1 = "2000" THEN (SELECT
-ROUND(SUM(Debit-Credit),2) AS Debit
-FROM gra_systems.bets_adwords_consolidation_je_201907_prod
-WHERE Entity_Code = "01"
-AND Account IN ("45100", "49950")
-AND Cost_Center IN ("950","IFS")
-AND Product = "A01"
-AND Future1 = "2000"
-AND Debit > 0)
+CASE  
+  WHEN Entity_Code = "01" AND Account = "45100" AND Product = "A01" AND Future1 = "1000" THEN (SELECT
+                                                                                                ROUND(SUM(Debit-Credit),2) AS Debit
+                                                                                               FROM gra_systems.bets_adwords_consolidation_je_201907_prod
+                                                                                               WHERE Entity_Code = "01"
+                                                                                               AND Account IN ("45100", "49950") 
+                                                                                               AND Cost_Center IN ("950","IFS")
+                                                                                               AND Product = "A01"
+                                                                                               AND Future1 = "1000"
+                                                                                               AND Debit > 0)
+  WHEN Entity_Code = "01" AND Account = "45100" AND Product = "A01" AND Future1 = "2000" THEN (SELECT
+                                                                                                ROUND(SUM(Debit-Credit),2) AS Debit
+                                                                                               FROM gra_systems.bets_adwords_consolidation_je_201907_prod
+                                                                                               WHERE Entity_Code = "01"
+                                                                                               AND Account IN ("45100", "49950")
+                                                                                               AND Cost_Center IN ("950","IFS")
+                                                                                               AND Product = "A01"
+                                                                                               AND Future1 = "2000"
+                                                                                               AND Debit > 0)
 WHEN Entity_Code = "01" AND Account = "45100" AND Product = "A09" AND Future1 = "1000" THEN (SELECT
 ROUND(SUM(Debit-Credit),2) AS Debit
 FROM gra_systems.bets_adwords_consolidation_je_201907_prod
