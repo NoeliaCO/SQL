@@ -1,0 +1,494 @@
+SELECT
+Entity_Code,
+Account,
+Cost_Center,
+Location,
+Product,
+Future1,
+Future2,
+
+#Tengo que ver cada CASE en particular: 51118 en la tabla del JE no tiene Future1 y tengo que poner en todos los casos que si (si estoy haciendo DEBIT) que el Debit sea mayor que el Credit o que si el Debit es 0 que traiga 0; o sea, si no existe la linea de IFS, que me traiga el monto de Debit que corresponde
+
+
+CASE
+WHEN Entity_Code = "01" AND Account = "45100" AND Product = "A01" AND Future1 = "1000" THEN (SELECT
+ROUND(SUM(Debit-Credit),2) AS Debit
+FROM gra_systems.bets_adwords_consolidation_je_201907_prod
+WHERE Entity_Code = "01"
+AND Account IN ("45100", "49950")
+AND Cost_Center IN ("950","IFS")
+AND Product = "A01"
+AND Future1 = "1000"
+AND Debit > 0)
+WHEN Entity_Code = "01" AND Account = "45100" AND Product = "A01" AND Future1 = "2000" THEN (SELECT
+ROUND(SUM(Debit-Credit),2) AS Debit
+FROM gra_systems.bets_adwords_consolidation_je_201907_prod
+WHERE Entity_Code = "01"
+AND Account IN ("45100", "49950")
+AND Cost_Center IN ("950","IFS")
+AND Product = "A01"
+AND Future1 = "2000"
+AND Debit > 0)
+WHEN Entity_Code = "01" AND Account = "45100" AND Product = "A09" AND Future1 = "1000" THEN (SELECT
+ROUND(SUM(Debit-Credit),2) AS Debit
+FROM gra_systems.bets_adwords_consolidation_je_201907_prod
+WHERE Entity_Code = "01"
+AND Account IN ("45100", "49950")
+AND Cost_Center IN ("950","IFS")
+AND Product = "A09"
+AND Future1 = "1000"
+AND Debit > 0)
+WHEN Entity_Code = "01" AND Account = "45100" AND Product = "A09" AND Future1 = "2000" THEN (SELECT
+ROUND(SUM(Debit-Credit),2) AS Debit
+FROM gra_systems.bets_adwords_consolidation_je_201907_prod
+WHERE Entity_Code = "01"
+AND Account IN ("45100", "49950")
+AND Cost_Center IN ("950","IFS")
+AND Product = "A09"
+AND Future1 = "2000"
+AND Debit > 0)
+WHEN Entity_Code = "01" AND Account = "45100" AND Product = "A20" AND Future1 = "1000" THEN (SELECT
+ROUND(SUM(Debit-Credit),2) AS Debit
+FROM gra_systems.bets_adwords_consolidation_je_201907_prod
+WHERE Entity_Code = "01"
+AND Account IN ("45100", "49950")
+AND Cost_Center IN ("950","IFS")
+AND Product = "A20"
+AND Future1 = "1000"
+AND Debit > 0)
+WHEN Entity_Code = "01" AND Account = "45100" AND Product = "A20" AND Future1 = "2000" THEN (SELECT
+ROUND(SUM(Debit-Credit),2) AS Debit
+FROM gra_systems.bets_adwords_consolidation_je_201907_prod
+WHERE Entity_Code = "01"
+AND Account IN ("45100", "49950")
+AND Cost_Center IN ("950","IFS")
+AND Product = "A20"
+AND Future1 = "2000"
+AND Debit > 0)
+WHEN Entity_Code = "01" AND Account = "45100" AND Product = "A21" AND Future1 = "1000" THEN (SELECT
+ROUND(SUM(Debit-Credit),2) AS Debit
+FROM gra_systems.bets_adwords_consolidation_je_201907_prod
+WHERE Entity_Code = "01"
+AND Account IN ("45100", "49950")
+AND Cost_Center IN ("950","IFS")
+AND Product = "A21"
+AND Future1 = "1000"
+AND Debit > 0)
+WHEN Entity_Code = "01" AND Account = "45100" AND Product = "A21" AND Future1 = "2000" THEN (SELECT
+ROUND(SUM(Debit-Credit),2) AS Debit
+FROM gra_systems.bets_adwords_consolidation_je_201907_prod
+WHERE Entity_Code = "01"
+AND Account IN ("45100", "49950")
+AND Cost_Center IN ("950","IFS")
+AND Product = "A21"
+AND Future1 = "2000"
+AND Debit > 0)
+WHEN Entity_Code = "01" AND Account = "45100" AND Product = "A22" AND Future1 = "1000" THEN (SELECT
+ROUND(SUM(Debit-Credit),2) AS Debit
+FROM gra_systems.bets_adwords_consolidation_je_201907_prod
+WHERE Entity_Code = "01"
+AND Account IN ("45100", "49950")
+AND Cost_Center IN ("950","IFS")
+AND Product = "A22"
+AND Future1 = "1000"
+AND Debit > 0)
+WHEN Entity_Code = "01" AND Account = "45100" AND Product = "A22" AND Future1 = "2000" THEN (SELECT
+ROUND(SUM(Debit-Credit),2) AS Debit
+FROM gra_systems.bets_adwords_consolidation_je_201907_prod
+WHERE Entity_Code = "01"
+AND Account IN ("45100", "49950")
+AND Cost_Center IN ("950","IFS")
+AND Product = "A22"
+AND Future1 = "2000"
+AND Debit > 0)
+WHEN Entity_Code = "96" AND Account = "69250" AND Product = "A01" AND Future1 = "1000" THEN (SELECT
+ROUND(SUM(Debit-Credit),2) AS Debit
+FROM gra_systems.bets_adwords_consolidation_je_201907_prod
+WHERE Entity_Code = "01"
+AND Account IN ("50011", "51130")
+AND Cost_Center IN ("950","IFS")
+AND Product = "A01"
+AND Future1 = "1000"
+AND Debit > 0)
+WHEN Entity_Code = "96" AND Account = "69250" AND Product = "A01" AND Future1 = "2000" THEN (SELECT
+ROUND(SUM(Debit-Credit),2) AS Debit
+FROM gra_systems.bets_adwords_consolidation_je_201907_prod
+WHERE Entity_Code = "01"
+AND Account IN ("50011", "51130")
+AND Cost_Center IN ("950","IFS")
+AND Product = "A01"
+AND Future1 = "2000"
+AND Debit > 0)
+WHEN Entity_Code = "96" AND Account = "69250" AND Product = "A09" AND Future1 = "1000" THEN (SELECT
+ROUND(SUM(Debit-Credit),2) AS Debit
+FROM gra_systems.bets_adwords_consolidation_je_201907_prod
+WHERE Entity_Code = "01"
+AND Account IN ("50011", "51118")
+AND Cost_Center IN ("950","IFS")
+AND Product = "A09"
+AND Future1 IN ("1000","0000")
+AND Debit > 0)
+WHEN Entity_Code = "96" AND Account = "69250" AND Product = "A09" AND Future1 = "2000" THEN (SELECT
+ROUND(SUM(Debit-Credit),2) AS Debit
+FROM gra_systems.bets_adwords_consolidation_je_201907_prod
+WHERE Entity_Code = "01"
+AND Account IN ("50011", "51118")
+AND Cost_Center IN ("950","IFS")
+AND Product = "A09"
+AND Future1 IN ("2000","0000")
+AND Debit > 0)
+WHEN Entity_Code = "96" AND Account = "69250" AND Product = "A20" AND Future1 = "1000" THEN (SELECT
+ROUND(SUM(Debit-Credit),2) AS Debit
+FROM gra_systems.bets_adwords_consolidation_je_201907_prod
+WHERE Entity_Code = "01"
+AND Account IN ("50011", "51130")
+AND Cost_Center IN ("950","IFS")
+AND Product = "A20"
+AND Future1 IN ("1000")
+AND Debit > 0)
+WHEN Entity_Code = "96" AND Account = "69250" AND Product = "A20" AND Future1 = "2000" THEN (SELECT
+ROUND(SUM(Debit-Credit),2) AS Debit
+FROM gra_systems.bets_adwords_consolidation_je_201907_prod
+WHERE Entity_Code = "01"
+AND Account IN ("50011", "51130")
+AND Cost_Center IN ("950","IFS")
+AND Product = "A20"
+AND Future1 = "2000"
+AND Debit > 0)
+WHEN Entity_Code = "96" AND Account = "69250" AND Product = "A21" AND Future1 = "1000" THEN (SELECT
+ROUND(SUM(Debit-Credit),2) AS Debit
+FROM gra_systems.bets_adwords_consolidation_je_201907_prod
+WHERE Entity_Code = "01"
+AND Account IN ("50011", "51130")
+AND Cost_Center IN ("950","IFS")
+AND Product = "A21"
+AND Future1 IN ("1000")
+AND Debit > 0)
+WHEN Entity_Code = "96" AND Account = "69250" AND Product = "A21" AND Future1 = "2000" THEN (SELECT
+ROUND(SUM(Debit-Credit),2) AS Debit
+FROM gra_systems.bets_adwords_consolidation_je_201907_prod
+WHERE Entity_Code = "01"
+AND Account IN ("50011", "51130")
+AND Cost_Center IN ("950","IFS")
+AND Product = "A21"
+AND Future1 = "2000"
+AND Debit > 0)
+WHEN Entity_Code = "96" AND Account = "69250" AND Product = "A22" AND Future1 = "1000" THEN (SELECT
+ROUND(SUM(Debit-Credit),2) AS Debit
+FROM gra_systems.bets_adwords_consolidation_je_201907_prod
+WHERE Entity_Code = "01"
+AND Account IN ("50011", "51130")
+AND Cost_Center IN ("950","IFS")
+AND Product = "A22"
+AND Future1 IN ("1000")
+AND Debit > 0)
+WHEN Entity_Code = "96" AND Account = "69250" AND Product = "A22" AND Future1 = "2000" THEN (SELECT
+ROUND(SUM(Debit-Credit),2) AS Debit
+FROM gra_systems.bets_adwords_consolidation_je_201907_prod
+WHERE Entity_Code = "01"
+AND Account IN ("50011", "51130")
+AND Cost_Center IN ("950","IFS")
+AND Product = "A22"
+AND Future1 = "2000"
+AND Debit > 0)
+
+ELSE Debit
+END AS Debit,
+Credit,
+Batch_Name,
+Batch_Description,
+Journal_Name,
+Journal_Description,
+Line_Description
+
+FROM
+(SELECT
+CASE
+WHEN G.Entity_Code = '96' AND (G.Cost_Center = '06Y' OR G.Cost_Center = '62V') THEN '91'
+WHEN G.Entity_Code = '96' AND G.Future1 = 'XIDS' THEN '91'
+ELSE G.Entity_Code
+END AS Entity_Code,
+G.Account,
+G.Cost_Center,
+G.Location,
+G.Product,
+CASE
+WHEN G.Entity_Code = "01" AND G.Account = "51118" AND G.Future1 = "0000" THEN (SELECT
+Future1
+FROM gra_systems.bets_adwords_consolidation_je_201907_prod
+WHERE Entity_Code = "01"
+AND Account = "50011"
+AND Product = "A09"
+GROUP BY 1)
+ELSE G.Future1
+END AS Future1,
+G.Future2,
+G.Debit,
+G.Credit,
+G.Batch_Name,
+G.Batch_Description,
+G.Journal_Name,
+G.Journal_Description,
+G.Line_Description
+
+#Identificar el monto total de Cost Center 75H y compara con la tabla de Revenue para clasificar si es "Area 120" o "Jigsaw" (que son los dos que salen mal)
+FROM
+(SELECT
+E.Entity_Code,
+E.Account,
+CASE
+WHEN F.Bet = "GoogleX" AND (SELECT
+SUM(Credit) AS Net
+
+FROM gra_systems.bets_adwords_consolidation_je_201907_prod
+WHERE Account = "69950"
+AND Cost_Center = "75H") =
+(SELECT
+ROUND(SUM(A.revenue),2) AS Revenue
+
+FROM gra_systems.bets_adwords_consolidation_MPAS_Prep28_201907_prod AS A
+LEFT JOIN
+(#Mapeo de los Bets con la tabla de Invoice Mapping para tener una referencia
+SELECT ExternalCustomerId,
+InvoiceId,
+CASE
+WHEN ExternalCustomerId = "6701838699" THEN "Access & Energy/GFiber"
+WHEN ExternalCustomerId = "5849048116" THEN "Access & Energy/GFiber"
+WHEN ExternalCustomerId = "6285410122" THEN "Access & Energy/GFiber"
+WHEN ExternalCustomerId = "2253204868" THEN "Access & Energy/GFiber"
+WHEN ExternalCustomerId = "2768330792" THEN "Access & Energy/GFiber"
+WHEN ExternalCustomerId = "7375416713" THEN "Chronicle Security"
+WHEN ExternalCustomerId = "7838080825" THEN "GoogleX"
+WHEN ExternalCustomerId = "7282850940" THEN "Nest"
+WHEN ExternalCustomerId = "4257091540" THEN "Nest"
+WHEN ExternalCustomerId = "1427896788" THEN "Nest"
+WHEN ExternalCustomerId = "9588409799" THEN "Nest"
+WHEN ExternalCustomerId = "3522238492" THEN "Nest"
+WHEN ExternalCustomerId = "4031722358" THEN "Sidewalk"
+WHEN ExternalCustomerId = "2407985104" THEN "Verily"
+WHEN ExternalCustomerId = "7112894035" THEN "Verily"
+WHEN ExternalCustomerId = "4885840280" THEN "Verily"
+WHEN ExternalCustomerId = "4188374794" THEN "Verily"
+WHEN ExternalCustomerId = "1135869193" THEN "Verily"
+WHEN ExternalCustomerId = "8176297358" THEN "Verily"
+WHEN ExternalCustomerId = "4219063737" THEN "Waymo"
+WHEN ExternalCustomerId = "2373271946" THEN "Jigsaw"
+WHEN ExternalCustomerId = "8968296935" THEN "DeepMind"
+WHEN ExternalCustomerId = "5589964374" THEN "Area 120"
+WHEN ExternalCustomerId = "1200516290" THEN "Area 120"
+WHEN ExternalCustomerId = "4078029476" THEN "Area 120"
+WHEN ExternalCustomerId = "9816035129" THEN "Area 120"
+WHEN ExternalCustomerId = "8225452962" THEN "Area 120"
+WHEN ExternalCustomerId = "6995802070" THEN "Area 120"
+ELSE ExternalCustomerId
+END AS Bet
+FROM gra_systems.bets_adwords_consolidation_MPAS_Prep19.2_201907_prod ) AS B
+ON A.InvoiceId = B.InvoiceId
+WHERE B.Bet = "Area 120") THEN "801"
+WHEN F.Bet = "GoogleX" AND (SELECT
+SUM(Credit) AS Net
+
+FROM gra_systems.bets_adwords_consolidation_je_201907_prod
+WHERE Account = "69950"
+AND Cost_Center = "75H") =
+(SELECT
+ROUND(SUM(A.revenue),2) AS Revenue
+
+FROM gra_systems.bets_adwords_consolidation_MPAS_Prep28_201907_prod AS A
+LEFT JOIN
+(#Mapeo de los Bets con la tabla de Invoice Mapping para tener una referencia
+SELECT ExternalCustomerId,
+InvoiceId,
+CASE
+WHEN ExternalCustomerId = "6701838699" THEN "Access & Energy/GFiber"
+WHEN ExternalCustomerId = "5849048116" THEN "Access & Energy/GFiber"
+WHEN ExternalCustomerId = "6285410122" THEN "Access & Energy/GFiber"
+WHEN ExternalCustomerId = "2253204868" THEN "Access & Energy/GFiber"
+WHEN ExternalCustomerId = "2768330792" THEN "Access & Energy/GFiber"
+WHEN ExternalCustomerId = "7375416713" THEN "Chronicle Security"
+WHEN ExternalCustomerId = "7838080825" THEN "GoogleX"
+WHEN ExternalCustomerId = "7282850940" THEN "Nest"
+WHEN ExternalCustomerId = "4257091540" THEN "Nest"
+WHEN ExternalCustomerId = "1427896788" THEN "Nest"
+WHEN ExternalCustomerId = "9588409799" THEN "Nest"
+WHEN ExternalCustomerId = "3522238492" THEN "Nest"
+WHEN ExternalCustomerId = "4031722358" THEN "Sidewalk"
+WHEN ExternalCustomerId = "2407985104" THEN "Verily"
+WHEN ExternalCustomerId = "7112894035" THEN "Verily"
+WHEN ExternalCustomerId = "4885840280" THEN "Verily"
+WHEN ExternalCustomerId = "4188374794" THEN "Verily"
+WHEN ExternalCustomerId = "1135869193" THEN "Verily"
+WHEN ExternalCustomerId = "8176297358" THEN "Verily"
+WHEN ExternalCustomerId = "4219063737" THEN "Waymo"
+WHEN ExternalCustomerId = "2373271946" THEN "Jigsaw"
+WHEN ExternalCustomerId = "8968296935" THEN "DeepMind"
+WHEN ExternalCustomerId = "5589964374" THEN "Area 120"
+WHEN ExternalCustomerId = "1200516290" THEN "Area 120"
+WHEN ExternalCustomerId = "4078029476" THEN "Area 120"
+WHEN ExternalCustomerId = "9816035129" THEN "Area 120"
+WHEN ExternalCustomerId = "8225452962" THEN "Area 120"
+WHEN ExternalCustomerId = "6995802070" THEN "Area 120"
+ELSE ExternalCustomerId
+END AS Bet
+FROM gra_systems.bets_adwords_consolidation_MPAS_Prep19.2_201907_prod ) AS B
+ON A.InvoiceId = B.InvoiceId
+WHERE B.Bet = "Jigsaw") THEN "62V"
+ELSE E.Cost_Center
+END AS Cost_Center,
+E.location AS Location,
+E.Product,
+E.Future1,
+E.Future2,
+ROUND(E.Debit,2) AS Debit,
+ROUND(E.Credit,2) AS Credit,
+E.Batch_Name,
+E.Batch_Description,
+E.Journal_Name,
+E.Journal_Description,
+E.Line_Description,
+F.Bet
+
+FROM gra_systems.bets_adwords_consolidation_je_201907_prod AS E
+#Para identificar los Cost_Center de "GoogleX"
+LEFT JOIN
+(SELECT
+C.Entity_Code,
+C.Account,
+C.Cost_Center,
+C.location,
+C.Product,
+C.Future1,
+C.Future2,
+CASE
+WHEN C.Debit = 0 THEN NULL
+ELSE C.Debit
+END AS Debit,
+CASE
+WHEN C.Credit = 0 THEN NULL
+ELSE C.Credit
+END AS Credit,
+C.Batch_Name,
+C.Batch_Description,
+C.Journal_Name,
+C.Journal_Description,
+C.Line_Description,
+CASE
+WHEN C.Cost_Center = "75H" THEN "GoogleX"
+ELSE D.Bet
+END AS Bet,
+D.Revenue
+FROM gra_systems.bets_adwords_consolidation_je_201907_prod AS C
+LEFT JOIN
+(SELECT
+A.InvoiceId,
+A.Entity,
+A.gl_product AS Product,
+A.CurrencyCode,
+SUM(A.revenue) AS Revenue,
+B.Bet,
+CASE
+WHEN B.Bet = "Access & Energy/GFiber" THEN "02C"
+WHEN B.Bet = "Chronicle Security" THEN "0PZ"
+WHEN B.Bet = "GoogleX" THEN "75H"
+WHEN B.Bet = "Nest" THEN "06Y"
+WHEN B.Bet = "Sidewalk" THEN "79Q"
+WHEN B.Bet = "Verily" THEN "78B"
+WHEN B.Bet = "Waymo" THEN "0K5"
+WHEN B.Bet = "Jigsaw" THEN "62V"
+WHEN B.Bet = "Deepmind" THEN "75T"
+WHEN B.Bet = "Area 120" THEN "801"
+ELSE NULL
+END AS ElimCostCenter
+FROM gra_systems.bets_adwords_consolidation_MPAS_Prep28_201907_prod AS A
+LEFT JOIN #gra_systems.bets_adwords_consolidation_MPAS_Prep19.2_201907_prod AS B
+(#Mapeo de los Bets con la tabla de Invoice Mapping para tener una referencia
+SELECT ExternalCustomerId,
+InvoiceId,
+CASE
+WHEN ExternalCustomerId = "6701838699" THEN "Access & Energy/GFiber"
+WHEN ExternalCustomerId = "5849048116" THEN "Access & Energy/GFiber"
+WHEN ExternalCustomerId = "6285410122" THEN "Access & Energy/GFiber"
+WHEN ExternalCustomerId = "2253204868" THEN "Access & Energy/GFiber"
+WHEN ExternalCustomerId = "2768330792" THEN "Access & Energy/GFiber"
+WHEN ExternalCustomerId = "7375416713" THEN "Chronicle Security"
+WHEN ExternalCustomerId = "7838080825" THEN "GoogleX"
+WHEN ExternalCustomerId = "7282850940" THEN "Nest"
+WHEN ExternalCustomerId = "4257091540" THEN "Nest"
+WHEN ExternalCustomerId = "1427896788" THEN "Nest"
+WHEN ExternalCustomerId = "9588409799" THEN "Nest"
+WHEN ExternalCustomerId = "3522238492" THEN "Nest"
+WHEN ExternalCustomerId = "4031722358" THEN "Sidewalk"
+WHEN ExternalCustomerId = "2407985104" THEN "Verily"
+WHEN ExternalCustomerId = "7112894035" THEN "Verily"
+WHEN ExternalCustomerId = "4885840280" THEN "Verily"
+WHEN ExternalCustomerId = "4188374794" THEN "Verily"
+WHEN ExternalCustomerId = "1135869193" THEN "Verily"
+WHEN ExternalCustomerId = "8176297358" THEN "Verily"
+WHEN ExternalCustomerId = "4219063737" THEN "Waymo"
+WHEN ExternalCustomerId = "2373271946" THEN "Jigsaw"
+WHEN ExternalCustomerId = "8968296935" THEN "DeepMind"
+WHEN ExternalCustomerId = "5589964374" THEN "Area 120"
+WHEN ExternalCustomerId = "1200516290" THEN "Area 120"
+WHEN ExternalCustomerId = "4078029476" THEN "Area 120"
+WHEN ExternalCustomerId = "9816035129" THEN "Area 120"
+WHEN ExternalCustomerId = "8225452962" THEN "Area 120"
+WHEN ExternalCustomerId = "6995802070" THEN "Area 120"
+ELSE ExternalCustomerId
+END AS Bet
+FROM gra_systems.bets_adwords_consolidation_MPAS_Prep19.2_201907_prod ) AS B
+ON A.InvoiceId = B.InvoiceId
+GROUP BY 1,2,3,4,6) AS D
+ON C.Cost_Center = D.ElimCostCenter
+GROUP BY 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16) AS F
+ON E.Cost_Center = F.Cost_Center
+GROUP BY 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15) AS G
+WHERE G.Account != "69250"
+
+#UNION para que la cantidad de lineas de la cuenta 69250 coincida con la cantidad de la cuenta 50011 y traiga bien los montos y su Future1
+UNION ALL
+SELECT
+Entity_Code,
+Account,
+Cost_Center,
+Location,
+Product,
+Future1,
+Future2,
+ROUND(Debit,2) AS Debit,
+ROUND(Credit,2) AS Credit,
+Batch_Name,
+Batch_Description,
+Journal_Name,
+Journal_Description,
+Line_Description
+
+FROM
+(SELECT
+Entity_Code,
+CASE
+WHEN Account = "50011" THEN "69250"
+ELSE Account
+END AS Account,
+Cost_Center,
+Location,
+Product,
+Future1,
+Future2,
+CASE
+WHEN Debit = 0 THEN Credit
+ELSE Debit
+END AS Debit,
+CASE
+WHEN Credit != 0 THEN Debit
+ELSE Credit
+END AS Credit,
+Batch_Name,
+Batch_Description,
+Journal_Name,
+Journal_Description,
+Line_Description
+
+FROM gra_systems.bets_adwords_consolidation_je_201907_prod
+
+WHERE Account = "50011"
+AND Batch_Description LIKE "AB-ITC-C-7003%") ) AS H
